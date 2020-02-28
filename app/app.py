@@ -1,4 +1,7 @@
-from flask import Flask, render_template
+import json
+
+from flask import Flask, render_template, jsonify
+from app.data import population_file
 
 app = Flask(__name__)
 
@@ -8,9 +11,10 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/home')
-def home():
-    return render_template('home.html')
+@app.route('/api/countries')
+def api_list_countries():
+    with population_file.open() as f:
+        return jsonify(data=json.load(f))
 
 
 if __name__ == '__main__':

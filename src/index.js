@@ -1,11 +1,18 @@
-import _ from 'lodash'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'datatables/media/css/jquery.dataTables.min.css'
 
-function component() {
-  // const element = document.createElement('div');
-  const link  = document.createElement('a');
-  link.setAttribute('href', '/home');
-  link.innerHTML = "go home!";
-  return link;
+import {CountriesTable} from "./components/countries_table/countries-table";
+
+
+class IndexController {
+    constructor() {
+        this.element = document.getElementById("root");
+        this.initializeComponents();
+    }
+
+    initializeComponents() {
+        this.countriesTable = new CountriesTable("countries-table-container");
+    }
 }
 
-document.body.appendChild(component());
+window.ctrl = new IndexController();
