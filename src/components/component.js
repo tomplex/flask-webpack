@@ -26,7 +26,7 @@ export class Component {
 
     /** Trigger a component event with the provided "detail" payload */
     triggerEvent (eventName, detail) {
-        const event = new window.CustomEvent(eventName, { detail })
+        const event = new window.CustomEvent(eventName, { detail });
         this.componentElem.dispatchEvent(event)
     }
 }

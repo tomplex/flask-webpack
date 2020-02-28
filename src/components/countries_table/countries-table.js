@@ -20,7 +20,7 @@ export class CountriesTable extends Component {
     }
 
     buildTable(data) {
-        $("#countries-table").DataTable({
+        $(this.refs["countries-table"]).DataTable({
             data: data.data,
             columns: [
                 {data: "Country"},
